@@ -61,8 +61,8 @@ const Reports = () => {
               <th></th>
               <th>Total</th>
               <th>{round(brokerage())}</th>
-              <th>{round(realised())}</th>
               <th>{round(netRealised())}</th>
+              <th>{round(realised())}</th>
             </tr>
           </thead>
         ) : null}
