@@ -136,6 +136,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-collapse: collapse;
   width: 100%;
   position: relative;
+  text-align: center;
 }
 
 thead th {
@@ -145,8 +146,12 @@ thead th {
 
 #reports td,
 #reports th {
-  border: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   padding: 8px;
+}
+
+#reports th:last-child {
+  border: none;
 }
 
 #reports tr:nth-child(even) {
