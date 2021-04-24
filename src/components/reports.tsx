@@ -6,6 +6,7 @@ import { IReport } from "../store/state";
 const Container = styled.div`
   height: 100vh;
   width: 100%;
+  overflow-y: scroll;
 `;
 
 const Reports = () => {
