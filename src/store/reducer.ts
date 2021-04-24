@@ -1,6 +1,5 @@
+import { round } from ".";
 import { IReport, IState } from "./state";
-
-const round = (x: number): number => Math.round(x * 100) / 100;
 
 export interface IAction {
   type: string;
@@ -18,19 +17,21 @@ export const ActionTypes = {
 const generateReport = (state: IState): IState => {
   const { capital, brokerage, percentile, trades } = state;
   const reports: Array<IReport> = [];
-  let realisedPnL = 0,
-    netRealisedPnL = 0;
+  let oldCapital = capital,
+    newCapital = capital,
+    realisedPnL = 0;
   Array(trades)
     .fill(0)
     .forEach((_, index: number) => {
-      realisedPnL += capital * (percentile / 100) - brokerage;
-      netRealisedPnL += capital * (percentile / 100);
+      newCapital += newCapital * (percentile / 100) - 50;
+      realisedPnL = newCapital - oldCapital;
       reports.push({
-        capital: index > 0 ? realisedPnL + capital : capital,
+        capital: round(oldCapital),
         brokerage,
-        netRealisedPNL: round(netRealisedPnL),
+        netRealisedPNL: round(realisedPnL + 50),
         realisedPNL: round(realisedPnL),
       });
+      oldCapital = newCapital;
     });
   return {
     ...state,

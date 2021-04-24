@@ -2,6 +2,8 @@ import React, { useReducer } from "react";
 import { IAction, reducer } from "./reducer";
 import { initState, IState } from "./state";
 
+export const round = (x: number): number => Math.round(x * 100) / 100;
+
 export const Context = React.createContext<[IState, React.Dispatch<IAction>]>([
   initState,
   (action: IAction) => initState,

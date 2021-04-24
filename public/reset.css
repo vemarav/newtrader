@@ -136,7 +136,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-collapse: collapse;
   width: 100%;
   position: relative;
-  text-align: center;
+  text-align: right;
 }
 
 thead th {
@@ -165,7 +165,6 @@ thead th {
 #reports th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #0275d8;
   color: white;
 }
