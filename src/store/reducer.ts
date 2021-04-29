@@ -23,12 +23,12 @@ const generateReport = (state: IState): IState => {
   Array(trades)
     .fill(0)
     .forEach((_, index: number) => {
-      newCapital += newCapital * (percentile / 100) - 50;
+      newCapital += newCapital * (percentile / 100) - brokerage;
       realisedPnL = newCapital - oldCapital;
       reports.push({
         capital: round(oldCapital),
         brokerage,
-        netRealisedPNL: round(realisedPnL + 50),
+        netRealisedPNL: round(realisedPnL + brokerage),
         realisedPNL: round(realisedPnL),
       });
       oldCapital = newCapital;
