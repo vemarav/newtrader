@@ -28,8 +28,8 @@ const generateReport = (state: IState): IState => {
       reports.push({
         capital: round(oldCapital),
         brokerage,
-        netRealisedPNL: round(realisedPnL + brokerage),
-        realisedPNL: round(realisedPnL),
+        netRealisedPNL: round(realisedPnL),
+        realisedPNL: round(realisedPnL + brokerage),
       });
       oldCapital = newCapital;
     });
